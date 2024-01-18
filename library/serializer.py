@@ -1,4 +1,4 @@
-from .models import Book, Genre, Author
+from .models import Book, Genre, Author, LibraryBranch
 from rest_framework import serializers
 
 
@@ -17,4 +17,10 @@ class AuthorSerializer(serializers.ModelSerializer):
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
+        fields = '__all__'
+
+
+class LibraryBranchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LibraryBranch
         fields = '__all__'
