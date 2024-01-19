@@ -23,12 +23,6 @@ class GenreViewset(viewsets.ModelViewSet):
 
 class LibraryBranchViewset(viewsets.ModelViewSet):
     serializer_class = LibraryBranchSerializer
-
-    def get_queryset(self):
-        queryset = LibraryBranch.objects.all()
-        is_branch_open = self.request.query_params.get('is_branch_open')
-        if is_branch_open is True:
-            queryset = LibraryBranch.objects.filter(is_branch_open=is_branch_open)
-        return queryset
+    queryset = LibraryBranch.objects.all()
 
 
